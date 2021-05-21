@@ -5,7 +5,7 @@ class TouchField extends StatelessWidget {
   final Function onTapUp;
   final Color backGroundButtonColor;
 
-  TouchField({this.backGroundButtonColor, this.onTapDown, this.onTapUp});
+  TouchField({required this.backGroundButtonColor, required this.onTapDown, required this.onTapUp});
 
   @override
   Widget build(BuildContext context) {

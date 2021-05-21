@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProgressBar extends StatelessWidget {
-  final List<bool> isPressed;
+  late final List<bool> isPressed;
 
-  ProgressBar({this.isPressed});
+  ProgressBar({required this.isPressed});
 
   @override
   Widget build(BuildContext context) {

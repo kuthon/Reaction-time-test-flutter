@@ -8,7 +8,6 @@ import 'package:reaction_test/main.dart';
 import 'package:reaction_test/widgets/progress_bar.dart';
 import 'package:reaction_test/widgets/result.dart';
 import 'package:reaction_test/widgets/touch_field.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,15 +16,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Color _backGroundButtonColor = Colors.grey;
-  Timer t;
-  DateTime _timeStart;
-  DateTime _timeEnd;
-  int _timeDiff;
+  Timer? t;
+  DateTime? _timeStart;
+  DateTime? _timeEnd;
+  int? _timeDiff;
   int _attemptCounter = 0;
   static int _amountAttempts = 3;
   List<int> _results = [];
-  List _isPressed = List<bool>.filled(_amountAttempts, false);
-  int _bestResult = prefs.getInt('best_result');
+  List<bool> _isPressed = List<bool>.filled(_amountAttempts, false);
+  int? _bestResult = prefs.getInt('best_result');
   bool _isActive = false;
 
   void _onTapDown() {
@@ -52,15 +51,15 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _isActive = false;
       _timeEnd = new DateTime.now();
-      _timeDiff = _timeEnd.difference(_timeStart).inMilliseconds;
+      _timeDiff = _timeEnd!.difference(_timeStart!).inMilliseconds;
 
-      if (_timeDiff > 0) {
+      if (_timeDiff! > 0) {
         _isPressed[_attemptCounter] = true;
         _backGroundButtonColor = Colors.grey;
-        _results.add(_timeDiff);
+        _results.add(_timeDiff!);
         _attemptCounter++;
       } else {
-        t.cancel();
+        t!.cancel();
         _showWarningMessage();
         _clearState();
       }

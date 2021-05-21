@@ -4,8 +4,8 @@ import 'package:reaction_test/generated/l10n.dart';
 // ignore: must_be_immutable
 class ApprovalInscription extends StatelessWidget {
   final int score;
-  String _inscription;
-  ApprovalInscription({this.score});
+  String _inscription = '';
+  ApprovalInscription({required this.score});
 
   @override
   Widget build(BuildContext context) {

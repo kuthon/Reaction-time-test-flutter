@@ -6,12 +6,12 @@ import 'package:reaction_test/widgets/approval_inscription.dart';
 class Result extends StatelessWidget {
   final Function onClearState;
   final List<int> results;
-  final int bestResult;
+  final int? bestResult;
 
   Result(
-      {@required this.onClearState,
-      @required this.results,
-      @required this.bestResult});
+      {required this.onClearState,
+      required this.results,
+      required this.bestResult});
 
   int _getAverageResult(List<int> results) {
     int sum = results.reduce((value, element) => (value + element));
